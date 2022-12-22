@@ -1,19 +1,18 @@
 
-**<div align="center"><span style="text-decoration:underline" style="font-size:500px;">
- 	#Comparison of Convolutional Neural Network Architectures for Generating Cloud Masks for Landsat-8 Imagery</span></div>**
+**<div align="center"><span style="text-decoration:underline font-size:9">
+ 	Comparison of Convolutional Neural Network Architectures for Generating Cloud Masks for Landsat-8 Imagery</span></div>**
 
 **<div align="center">Deep Learning in Python - Final Project Submission</div>**
 
 <div align="center"><img src="images/image3.png" 
 	alt="Figure 0 - Sample of classification results from Simple Unet on testing imagery" 
-	width="800" 
-	height="800"></div>
+	width="500" 
+	height="500"></div>
 
 
 
 <div align="center">
-
-Figure 0 - Sample of classification results from Simple Unet on testing imagery 
+Figure 0 - Sample of classification results from Simple Unet on testing imagery
 
 Mitchell Creelman
 
