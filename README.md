@@ -6,8 +6,8 @@
 
 <div align="center"><img src="images/image3.png" 
 	alt="Figure 0 - Sample of classification results from Simple Unet on testing imagery" 
-	width="500" 
-	height="500"></div>
+	width="700" 
+	height="700"></div>
 
 
 
@@ -30,18 +30,10 @@ This project aims to compare the efficacy of two different U-shaped convolutiona
 
 
 ### Imagery Products
-
-	Optical remote sensing products consist of multispectral images collected by spaceborn passive sensors which collect rasterized reflectance values ranging from 400 to 13000 nm (Song et al., 2021). Wavelengths are broken down into bandwidths ranging between 15 nm and 590 nm, and are collected at spatial resolutions between 10 
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: equation: use MathJax/LaTeX if your publishing platform supports it. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
- and 1000 
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: equation: use MathJax/LaTeX if your publishing platform supports it. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
- (Drusch et al., 2012, Irons et al., 2012). These imagery products are used in a wide variety of scientific and industrial applications, from looking at land use changes and agricultural activity, to observing ocean currents and monitoring environmental change (Song et al., 2021). The temporal resolution of this imagery is dependant on the orbital characteristics of each individual sensor platform and thus tends to range between 3 days and two weeks for most locations around the globe.
-
-	While the variability between individual sensory platforms creates a wide array of use-cases for these images, it also has some major drawbacks. The lack of consistency in temporal, spectral, and spatial resolution between sensor platforms often means that developing a one-size-fits-all algorithm for optical remote sensing data is particularly challenging (Mateo-Garcia et al., 2020). As such, recent years have seen dramatic developments for the application of image classifications techniques to remote sensing products.
+Optical remote sensing products consist of multispectral images collected by spaceborn passive sensors which collect rasterized reflectance values ranging from 400 to 13000 nm (Song et al., 2021). Wavelengths are broken down into bandwidths ranging between 15 nm and 590 nm, and are collected at spatial resolutions between 10 $m^2$
+ and 1000 $m^2$ (Drusch et al., 2012, Irons et al., 2012). These imagery products are used in a wide variety of scientific and industrial applications, from looking at land use changes and agricultural activity, to observing ocean currents and monitoring environmental change (Song et al., 2021). The temporal resolution of this imagery is dependant on the orbital characteristics of each individual sensor platform and thus tends to range between 3 days and two weeks for most locations around the globe.
+ 
+While the variability between individual sensory platforms creates a wide array of use-cases for these images, it also has some major drawbacks. The lack of consistency in temporal, spectral, and spatial resolution between sensor platforms often means that developing a one-size-fits-all algorithm for optical remote sensing data is particularly challenging (Mateo-Garcia et al., 2020). As such, recent years have seen dramatic developments for the application of image classifications techniques to remote sensing products.
 
 
 ### Cloud Masking Techniques
@@ -55,55 +47,49 @@ While there are a wide variety of machine learning and neural network approaches
 
 This project seeks to compare two specific Unet architectural designs, that of a simple U shaped network (Figure 1) and that of a Unet++ (Figure 2), a far more complex network using nested and dense skip connections (Adaloglou, 2021)
 
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
+<div align="center">
+<img src="images/image5.png" 
+	width="700" 
+	height="400">
 
 
 Figure 1 - Standard Unet Architecture (Adaloglou, 2021)
 
 
 
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image3.png "image_tooltip")
+![alt_text](images/image7.png "image_tooltip")
 
 
 Figure 2 - Unet++ Architecture (Zhou et al., 2018)
+</div>
 
 Both of these networks belong to the convolutional neural network family (CNN), a subsection of encoder-decoder classification algorithms used for semantic segmentation tasks in image classification. These networks distill images down to identify the locations of given objects and then expand the images again in order to determine the shape and boundaries of each individual objects. 
 
 The Unet is a symmetrical fully convolutional neural network architecture that is used for semantic segmentation of imagery (Ronneberger et al., 2021). It is composed of two symmetrical sections, one for downsampling, and one for upsampling (Figure 1). The downsampling portion of the network identifies the location of objects within the network, while the upsampling portion of the network works to determine the border of each object within the image. The downsampling portion consists of two 3x3 convolutions, with ReLU activation functions between each layer.  These are then downsampled by a 2x2 max pooling operation with a stride of 2. The number of feature channels is then doubled between each layer.  The up convolutions involve an upsampling of the feature map followed by a 2x2 convolution halving the number of feature channels with a ReLU activation function between each. This is then repeated until a final 1x1 layer is used to map the classes of the image. The depth of this architecture is given by the L rating, which was set to 4 for this experiment. The main advantage of this architecture is its relative simplicity, lending it relative computational efficiency.
 
-**_ _**The Unet++ Architecture seeks to use nested and dense skip connections in order to design a network that is more effective at identifying fine-grain details of imagery (Zhou et al., 2018). As with the U-net design, this network contains a symmetrical downscaling and upscaling portion of images. However, it uses skip pathways which connect both sides of the network far more intricately than prior neural network designs.  Rather than simply concatenating two layers of mirror network sections, the skip pathways use multiple convolutional layers and concatenation layers to link higher blocks to lower blocks. These stacks are formally computed using equation 1, where H is a convolutional operation followed by an activation function, and U denotes an up-sampling layer. The j and i elements indicate the layer and depth within the network. 
+The Unet++ Architecture seeks to use nested and dense skip connections in order to design a network that is more effective at identifying fine-grain details of imagery (Zhou et al., 2018). As with the U-net design, this network contains a symmetrical downscaling and upscaling portion of images. However, it uses skip pathways which connect both sides of the network far more intricately than prior neural network designs.  Rather than simply concatenating two layers of mirror network sections, the skip pathways use multiple convolutional layers and concatenation layers to link higher blocks to lower blocks. These stacks are formally computed using equation 1, where H is a convolutional operation followed by an activation function, and U denotes an up-sampling layer. The j and i elements indicate the layer and depth within the network. 
 
-
-
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
+<div align="center">
+	
 ![alt_text](images/image4.png "image_tooltip")
-
-
+	
 Equation 1 - computation of skip connections in Unet++ ( Zhou et al., 2018)
+</div>
 
-	By implementing this novel connectivity strategy, the network should provide improved feature extraction over its simpler counterparts. However, this obviously comes at the cost of computational efficiency. 
+By implementing this novel connectivity strategy, the network should provide improved feature extraction over its simpler counterparts. However, this obviously comes at the cost of computational efficiency. 
 
 
 ## **Methods**
 
-	The dataset used for this project I was the Cloud 95 Dataset (Mohhajerani & Saeedi, 2021, Mohhajerani & Saeedi, 2019, Mohajerani et al., 2018). This dataset consists of red, green, blue, near infrared (NiR) bands from a set of 95 separate Landsat 8 images, as well as a ground-truth mask of clouds for each. Each of these images was subdivided into 576 separate sub images of 384 x 384 pixels to maximize the amount of training data available. This results in 34,700 overall training images for the network. 
+The dataset used for this project I was the Cloud 95 Dataset (Mohhajerani & Saeedi, 2021, Mohhajerani & Saeedi, 2019, Mohajerani et al., 2018). This dataset consists of red, green, blue, near infrared (NiR) bands from a set of 95 separate Landsat 8 images, as well as a ground-truth mask of clouds for each. Each of these images was subdivided into 576 separate sub images of 384 x 384 pixels to maximize the amount of training data available. This results in 34,700 overall training images for the network. 
 
 For the data split, a 60/20/20 training/validation/testing split of this data was then used for training, with a consistently seeded random number generator used to prevent the model from seeing the testing data during its training phase. Each of these models was trained on the for 60 epochs using a batch size of 8 on the Borah computer cluster at Boise State University (Trader, 2022). The batch size was set at 8 due to GPU memory limitations. Both networks were trained on the same training and validation datasets through use of a seeded random number generator. They were also tested on the same dataset using the same methods. Both networks were tested with a learning rate of 0.0001 and a confusion matrix of the classification results was generated using pytorch (Paszke et al., 2019) and used for further statistical analysis.
 
 
 ## **Results** 
-
-	Overall, there were rather disparate performances between the models. In order to examine the performance and accuracy of these networks two methods were used. The first was an accuracy metric looking at the agreement of the images based on the argmax output of the final product and the ground-truthed mask. This was paired with a cross-entropy metric for loss calculation and the two were used to track the performance and progression of model performance throughout the 60 epoch development phase (Figure 3). The second metric was a confusion matrix generated from the testing results for each model (Table 1). This matrix was then used to calculate a number of analytical statistics used to compare both models (Tables 1, 2).
+Overall, there were rather disparate performances between the models. In order to examine the performance and accuracy of these networks two methods were used. The first was an accuracy metric looking at the agreement of the images based on the argmax output of the final product and the ground-truthed mask. This was paired with a cross-entropy metric for loss calculation and the two were used to track the performance and progression of model performance throughout the 60 epoch development phase (Figure 3). The second metric was a confusion matrix generated from the testing results for each model (Table 1). This matrix was then used to calculate a number of analytical statistics used to compare both models (Tables 1, 2).
 
 The accuracy and loss progressions of the two models are strikingly different. While the Unet model started at roughly 80%, it quickly trended up to 96% accuracy by the end of its 60 epoch training period.  Meanwhile, the Unet++ started at 78% in its initial training and steadily went downhill until it eventually crashed to 40% accuracy around epoch 50. Similar, though inverse behavior is seen in the loss functions, where the Unet steadily decreases to 0.1 while the Unet++ stays steady before increasing around epoch 50. It should be noted, however, that the performances on the testing dataset were considerably closer. While the Unet++ network still had a relatively high testing loss (0.48 vs. 1.2), it performed with a testing accuracy of 82.31% versus the Unet’s 97.09%. However, this top line accuracy may be misleading, as the confusion matrix statistics show a more nuanced story. 
 
@@ -135,25 +121,26 @@ There are three logical progressions for this study: 1) The implementation of au
 ## **Figures and Tables**
 
 
+<div align="center">
 
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image5.png "image_tooltip")
+![alt_text](images/image2.png "image_tooltip")
 
 
 Figure 3 - Comparison graph of loss and accuracy performance between networks
 
+	
+	
+	
+</div>
 
-
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image6.png "image_tooltip")
-
+<div align="center"><img src="images/image6.png" 
+	width="700" 
+	height="700">
 
 Figure 4 - Visualization of Testing performance by Unet++ Network. Note the frequent false negatives and false positives in lines 2 and 3
 
+
+</div>
 
 
 Table 1 - Confusion matrix statistics from each network. 
