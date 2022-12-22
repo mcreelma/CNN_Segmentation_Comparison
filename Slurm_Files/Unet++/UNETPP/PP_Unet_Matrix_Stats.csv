@@ -1,0 +1,33 @@
+,UnetPP
+Testing Accuracy,82.31
+Testing Loss,0.48007333278656006
+True Positive (TP),2166535
+False Negative (FN),118878
+False Positive (FP),363524
+True Negative (TN),890007
+Positive (P),2285413
+Negative (N),1253531
+Predicted Positive (PP),2530059
+Predicted Negative (PN),1008885
+Total Population (T) ,3538944
+True Positivity Rate (TPR),0.9479840186434575
+False Negativity Rate (FNR),0.05201598135654251
+False Positivity Rate (FPR),0.2900000079774653
+True Negative Rate (TNR),0.7099999920225347
+Prevalence (Prev),0.6457895349573206
+Accuracy (ACC),0.637779435469147
+Balanced Accuracy (BA),0.83
+Positive Predictive Value (PPV),0.8563179751934639
+False Discovery Rate (FDR),0.14368202480653613
+False Omission Rate (FOR),0.11783107093474479
+Negative Positivity Rate (NPV),0.8821689290652552
+Positive Likeliehood Ratio (LRP),3.268910319192548
+Negative Likeliehood Ratio (LRN),0.07326194639575653
+Markedness (MK),0.738486904258719
+Diagnostic Odds Ratio (DOR),44.61948501250697
+Threat Score (TS),0.8178884586534145
+Mathews Correlation Coefficient (MCC),0.7130550973788081
+Fawlkes-Mallows Index (FM),0.9009859906571958
+F1 Score (F),0.899822488844292
+Bookmaker Informedness (BM),0.6579840106659922
+Prevalence Threshold (PT),0.35612373156881294

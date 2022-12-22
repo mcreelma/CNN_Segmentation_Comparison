@@ -1,0 +1,2 @@
+Data and instructions for its preparation can be found here:
+https://www.kaggle.com/datasets/sorour/95cloud-cloud-segmentation-on-satellite-images

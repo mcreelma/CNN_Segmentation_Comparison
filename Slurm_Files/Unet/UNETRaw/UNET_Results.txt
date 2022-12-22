@@ -1,0 +1,4 @@
+ training dataset length: 20821
+ validation dataset length: 6940
+ training dataset length: 6940
+ Running on cuda:0 
