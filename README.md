@@ -1,24 +1,17 @@
-<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 1; ALERTS: 8.</p>
-<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
 
-<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
-<a href="#gdcalert2">alert2</a>
-<a href="#gdcalert3">alert3</a>
-<a href="#gdcalert4">alert4</a>
-<a href="#gdcalert5">alert5</a>
-<a href="#gdcalert6">alert6</a>
-<a href="#gdcalert7">alert7</a>
-<a href="#gdcalert8">alert8</a>
-
-<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
-
-
-**<div align="center"><span style="text-decoration:underline;">Comparison of Convolutional Neural Network Architectures for Generating Cloud Masks for Landsat-8 Imagery</span></div>**
+**<div align="center"><span style="text-decoration:underline" style="font-size:500px;">
+ 	#Comparison of Convolutional Neural Network Architectures for Generating Cloud Masks for Landsat-8 Imagery</span></div>**
 
 **<div align="center">Deep Learning in Python - Final Project Submission</div>**
 
+<div align="center"><img src="images/image3.png" 
+	alt="Figure 0 - Sample of classification results from Simple Unet on testing imagery" 
+	width="800" 
+	height="800"></div>
 
 
+
+<div align="center">
 
 Figure 0 - Sample of classification results from Simple Unet on testing imagery 
 
@@ -26,7 +19,7 @@ Mitchell Creelman
 
 Graduate Research Assistant
 
-Boise State University - CryoGARS Group
+Boise State University - CryoGARS Group</div>
 
 
 ## **Introduction**
